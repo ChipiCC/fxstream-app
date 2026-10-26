@@ -1,7 +1,7 @@
-import { defineConfig, devices } from '@playwright/test'
+import { defineConfig, devices } from '@playwright/test';
 
-const PORT = 4173
-const baseURL = `http://localhost:${PORT}`
+const PORT = 4173;
+const baseURL = `http://localhost:${PORT}`;
 
 export default defineConfig({
   testDir: './e2e',
@@ -29,4 +29,4 @@ export default defineConfig({
       VITE_USE_MOCK_API: 'true',
     },
   },
-})
+});
