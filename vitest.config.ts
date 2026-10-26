@@ -1,7 +1,7 @@
-import 'vitest/config'
+import 'vitest/config';
 
-import { defineConfig, mergeConfig } from 'vitest/config'
-import viteConfig from './vite.config'
+import { defineConfig, mergeConfig } from 'vitest/config';
+import viteConfig from './vite.config.ts';
 
 export default mergeConfig(
   viteConfig,
@@ -9,6 +9,7 @@ export default mergeConfig(
     test: {
       environment: 'jsdom',
       globals: true,
+      include: ['src/**/*.{test,spec}.{ts,tsx}'],
       setupFiles: ['./src/test/setup.ts'],
       css: true,
       restoreMocks: true,
@@ -17,13 +18,8 @@ export default mergeConfig(
         provider: 'v8',
         reporter: ['text', 'html'],
         include: ['src/**/*.{ts,tsx}'],
-        exclude: [
-          'src/main.tsx',
-          'src/**/*.d.ts',
-          'src/test/**',
-          'src/**/*.test.{ts,tsx}',
-        ],
+        exclude: ['src/main.tsx', 'src/**/*.d.ts', 'src/test/**', 'src/**/*.test.{ts,tsx}'],
       },
     },
   }),
-)
+);
